@@ -3,66 +3,53 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* AcuaStaking dark theme — always dark */
+/* Unity Stake Global — Dark Navy + Gold theme */
 :root {
-  /* Deep navy/charcoal dark background */
-  --background: oklch(0.11 0.012 240);
+  --background: oklch(0.09 0.014 240);
   --foreground: oklch(0.96 0.005 220);
 
-  /* Card: slightly lighter surface */
-  --card: oklch(0.15 0.015 240);
+  --card: oklch(0.12 0.015 240);
   --card-foreground: oklch(0.96 0.005 220);
 
-  --popover: oklch(0.15 0.015 240);
+  --popover: oklch(0.12 0.015 240);
   --popover-foreground: oklch(0.96 0.005 220);
 
-  /* Primary: cyan-teal (H2O brand) */
-  --primary: oklch(0.75 0.18 192);
-  --primary-foreground: oklch(0.1 0.01 240);
+  /* Primary: USG Gold */
+  --primary: oklch(0.78 0.18 78);
+  --primary-foreground: oklch(0.1 0.01 78);
 
-  /* Secondary: subtle surface */
-  --secondary: oklch(0.19 0.015 240);
+  --secondary: oklch(0.17 0.015 240);
   --secondary-foreground: oklch(0.82 0.01 220);
 
-  --muted: oklch(0.18 0.012 240);
-  --muted-foreground: oklch(0.55 0.01 220);
+  --muted: oklch(0.16 0.012 240);
+  --muted-foreground: oklch(0.52 0.01 220);
 
-  /* Accent: brighter cyan highlight */
-  --accent: oklch(0.72 0.2 192);
-  --accent-foreground: oklch(0.1 0.01 240);
+  --accent: oklch(0.75 0.2 78);
+  --accent-foreground: oklch(0.1 0.01 78);
 
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(0.96 0.005 220);
 
-  --border: oklch(0.25 0.015 240);
-  --input: oklch(0.2 0.015 240);
-  --ring: oklch(0.72 0.2 192);
+  --border: oklch(0.22 0.015 240);
+  --input: oklch(0.18 0.015 240);
+  --ring: oklch(0.75 0.2 78);
 
   --radius: 0.75rem;
 
-  /* Chart colors */
-  --chart-1: oklch(0.75 0.18 192);
+  --chart-1: oklch(0.78 0.18 78);
   --chart-2: oklch(0.65 0.15 165);
   --chart-3: oklch(0.55 0.12 220);
   --chart-4: oklch(0.6 0.18 140);
   --chart-5: oklch(0.7 0.16 210);
 
-  /* Custom tokens */
-  --cyan: oklch(0.75 0.18 192);
-  --cyan-dim: oklch(0.55 0.14 192);
-  --surface-1: oklch(0.15 0.015 240);
-  --surface-2: oklch(0.19 0.018 240);
-  --surface-3: oklch(0.22 0.02 240);
+  --surface-1: oklch(0.12 0.015 240);
+  --surface-2: oklch(0.16 0.018 240);
+  --surface-3: oklch(0.20 0.02 240);
 }
 
 @theme inline {
   --font-sans: 'Inter', 'Geist', 'Geist Fallback';
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
-  --color-cyan: var(--cyan);
-  --color-cyan-dim: var(--cyan-dim);
-  --color-surface-1: var(--surface-1);
-  --color-surface-2: var(--surface-2);
-  --color-surface-3: var(--surface-3);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -87,25 +74,36 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+* {
+  border-color: var(--border);
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.25 0.015 240) transparent;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: oklch(0.25 0.015 240); border-radius: 2px; }
+
+/* Prevent layout shift on modal open */
+html { overflow-x: hidden; }
+
+/* Gold glow effect for primary elements */
+.gold-glow {
+  box-shadow: 0 0 20px oklch(0.78 0.18 78 / 0.3);
 }

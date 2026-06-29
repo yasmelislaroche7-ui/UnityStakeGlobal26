@@ -1,0 +1,2 @@
+- [USG Project Architecture](usg-architecture.md) — Unity Stake Global app on World Chain; main component is components/usg-app.tsx (NOT acua-app.tsx)
+- [USG Contract Details](usg-contract.md) — Improved UnityStakeGlobal.sol in lib/contracts/stakeglobal.sol; owner1 excluded from commissions, tx.origin removed

@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Geist_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import { ErudaProvider } from '@/components/eruda-provider'
 import './globals.css'
 
@@ -14,9 +13,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Acua Staking',
-  description: 'Stake H2O on World Chain — earn 12% APY',
-  generator: 'v0.app',
+  title: 'Unity Stake Global — USG',
+  description: 'Plataforma de staking global para el token USG en World Chain. Juntos construimos. Juntos crecemos. Juntos ganamos.',
 }
 
 export const viewport: Viewport = {
@@ -24,7 +22,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: '#0c1220',
+  themeColor: '#0a0f1e',
 }
 
 export default function RootLayout({
@@ -37,7 +35,6 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-background text-foreground">
         <ErudaProvider />
         {children}
-        <Analytics />
       </body>
     </html>
   )
